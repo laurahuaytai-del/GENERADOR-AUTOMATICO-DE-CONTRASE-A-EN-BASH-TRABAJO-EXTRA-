@@ -1,5 +1,8 @@
 #!/bin/bash
-echo "Ingrese la longitud de la contraseña: "
+echo "Ingrese la longitud de la contraseña:"
 read longitud
 contrasena=$(tr -dc 'A-Za-z0-9' < /dev/urandom | head -c "$longitud")
-carpeta 
+carpeta=$(date +"%H%M%S")
+mkdir "$carpeta"
+echo "$contrasena" > "$carpeta/contrasena.txt"
+echo "Contraseña generada: $contrasena"
